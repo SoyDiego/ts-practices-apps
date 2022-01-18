@@ -1,12 +1,12 @@
-import { dataApi } from "../interfaces/quote";
+import { DataApi } from "../interfaces/quote";
 import IcRefresh from "./Icons/IcRefresh";
 
-type Props = {
-	q: dataApi;
+type CardQuoteProps = {
+	q: DataApi;
 	handleRefresh: () => void;
 };
 
-const CardQuote = ({ q, handleRefresh }: Props) => {
+const CardQuote = ({ q, handleRefresh }: CardQuoteProps) => {
 	return (
 		<div className="tw-flex tw-items-center tw-justify-center tw-px-5 tw-py-5">
 			<div

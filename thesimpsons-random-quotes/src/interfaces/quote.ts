@@ -1,4 +1,4 @@
-export interface dataApi {
+export interface DataApi {
 	quote: string;
 	character: string;
 	image: string;
