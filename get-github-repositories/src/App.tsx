@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Form from "./components/Form";
 import HeaderProfile from "./components/HeaderProfile";
+import Repositories from "./components/Repositories";
 import { ProfileData } from "./interfaces/ProfileData";
 
 const App = () => {
@@ -11,7 +12,7 @@ const App = () => {
 		avatar: "",
 		bio: "",
 	});
-	const [repositories, setRepositories] = useState<[]>([]);
+	const [dataRepos, setDataRepos] = useState<[]>([]);
 
 	return (
 		<div className="tw-grid tw-h-screen tw-place-content-center tw-bg-purple-900 tw-p-24">
@@ -20,12 +21,14 @@ const App = () => {
 					user={user}
 					setUser={setUser}
 					setProfileData={setProfileData}
-					setRepositories={setRepositories}
+					setDataRepos={setDataRepos}
 				/>
 
 				{profileData.login && (
 					<HeaderProfile profileData={profileData} />
 				)}
+
+				{dataRepos.length > 0 && <Repositories dataRepos={dataRepos} />}
 			</div>
 		</div>
 	);

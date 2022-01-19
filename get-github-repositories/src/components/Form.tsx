@@ -5,15 +5,10 @@ type FormProps = {
 	user: string;
 	setUser: Function;
 	setProfileData: Function;
-	setRepositories: Function;
+	setDataRepos: Function;
 };
 
-const Form = ({
-	user,
-	setUser,
-	setProfileData,
-	setRepositories,
-}: FormProps) => {
+const Form = ({ user, setUser, setProfileData, setDataRepos }: FormProps) => {
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
@@ -29,6 +24,12 @@ const Form = ({
 			setProfileData({});
 			return;
 		}
+
+		const responseRepos = await fetch(
+			`https://api.github.com/users/${user}/repos`
+		);
+		const dataRepos = await responseRepos.json();
+
 		setProfileData({
 			login: data.login,
 			name: data.name,
@@ -36,13 +37,7 @@ const Form = ({
 			bio: data.bio,
 		});
 
-		// const getRepos = () => {
-		// 	fetch(`https://api.github.com/users/${user}/repos`)
-		// 		.then((response) => response.json())
-		// 		.then((data) => {
-		// 			setRepositories(data);
-		// 		});
-		// };
+		setDataRepos(dataRepos);
 
 		// Clean Form
 		setUser("");
