@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 type FormProps = {
 	user: string;
@@ -20,10 +21,14 @@ const Form = ({
 		const data = await response.json();
 
 		if (data.message === "Not Found") {
-			alert("User not found");
+			toast(`User not found. Try again.`, {
+				icon: "😞",
+			});
+			// Clean Form
+			setUser("");
+			setProfileData({});
 			return;
 		}
-
 		setProfileData({
 			login: data.login,
 			name: data.name,
@@ -41,8 +46,6 @@ const Form = ({
 
 		// Clean Form
 		setUser("");
-
-		// getRepos();
 	};
 
 	const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
@@ -50,23 +53,26 @@ const Form = ({
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className="tw-w-full">
-			<div className="tw-flex tw-flex-col md:tw-flex-row tw-items-center tw-justify-center">
-				<input
-					value={user}
-					onChange={handleChange}
-					name="user"
-					className="tw-rounded-full tw-px-4 tw-py-2 tw-text-sm tw-w-72 tw-text-black"
-					type="text"
-					placeholder="GitHub Username"
-				/>
-				<button
-					className="tw-bg-purple-700 tw-p-2 tw-text-white tw-rounded tw-text-sm tw-my-2 tw-ml-2 hover:tw-bg-purple-600"
-					type="submit">
-					Search!
-				</button>
-			</div>
-		</form>
+		<>
+			<form onSubmit={handleSubmit} className="tw-w-full">
+				<div className="tw-flex tw-flex-col md:tw-flex-row tw-items-center tw-justify-center">
+					<input
+						value={user}
+						onChange={handleChange}
+						name="user"
+						className="tw-rounded-full tw-px-4 tw-py-2 tw-text-sm tw-w-72 tw-text-black"
+						type="text"
+						placeholder="GitHub Username"
+					/>
+					<button
+						className="tw-bg-purple-700 tw-p-2 tw-text-white tw-rounded tw-text-sm tw-my-2 tw-ml-2 hover:tw-bg-purple-600"
+						type="submit">
+						Search!
+					</button>
+				</div>
+			</form>
+			<Toaster />
+		</>
 	);
 };
 
