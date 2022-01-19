@@ -1,8 +1,60 @@
-const Form = () => {
-  return (
-		<form className="tw-w-full">
+import { ChangeEvent, FormEvent } from "react";
+
+type FormProps = {
+	user: string;
+	setUser: Function;
+	setProfileData: Function;
+	setRepositories: Function;
+};
+
+const Form = ({
+	user,
+	setUser,
+	setProfileData,
+	setRepositories,
+}: FormProps) => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		const response = await fetch(`https://api.github.com/users/${user}`);
+		const data = await response.json();
+
+		if (data.message === "Not Found") {
+			alert("User not found");
+			return;
+		}
+
+		setProfileData({
+			login: data.login,
+			name: data.name,
+			avatar: data.avatar_url,
+			bio: data.bio,
+		});
+
+		// const getRepos = () => {
+		// 	fetch(`https://api.github.com/users/${user}/repos`)
+		// 		.then((response) => response.json())
+		// 		.then((data) => {
+		// 			setRepositories(data);
+		// 		});
+		// };
+
+		// Clean Form
+		setUser("");
+
+		// getRepos();
+	};
+
+	const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+		setUser(target.value);
+	};
+
+	return (
+		<form onSubmit={handleSubmit} className="tw-w-full">
 			<div className="tw-flex tw-flex-col md:tw-flex-row tw-items-center tw-justify-center">
 				<input
+					value={user}
+					onChange={handleChange}
 					name="user"
 					className="tw-rounded-full tw-px-4 tw-py-2 tw-text-sm tw-w-72 tw-text-black"
 					type="text"
@@ -15,7 +67,7 @@ const Form = () => {
 				</button>
 			</div>
 		</form>
-  );
+	);
 };
 
 export default Form;
