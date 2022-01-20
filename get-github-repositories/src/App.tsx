@@ -6,13 +6,8 @@ import { IRepos } from "./interfaces/IRepos";
 import { ProfileData } from "./interfaces/ProfileData";
 
 const App = () => {
-	const [user, setUser] = useState<string>("");
-	const [profileData, setProfileData] = useState<ProfileData>({
-		login: "",
-		name: "",
-		avatar: "",
-		bio: "",
-	});
+	const [user, setUser] = useState<String>("");
+	const [profileData, setProfileData] = useState<Object>({});
 	const [dataRepos, setDataRepos] = useState<IRepos[]>([]);
 
 	return (
