@@ -3,7 +3,6 @@ import Form from "./components/Form";
 import HeaderProfile from "./components/HeaderProfile";
 import Repositories from "./components/Repositories";
 import { IRepos } from "./interfaces/IRepos";
-import { ProfileData } from "./interfaces/ProfileData";
 
 const App = () => {
 	const [user, setUser] = useState<String>("");
