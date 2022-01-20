@@ -2,6 +2,7 @@ import { useState } from "react";
 import Form from "./components/Form";
 import HeaderProfile from "./components/HeaderProfile";
 import Repositories from "./components/Repositories";
+import { IRepos } from "./interfaces/IRepos";
 import { ProfileData } from "./interfaces/ProfileData";
 
 const App = () => {
@@ -12,7 +13,7 @@ const App = () => {
 		avatar: "",
 		bio: "",
 	});
-	const [dataRepos, setDataRepos] = useState<[]>([]);
+	const [dataRepos, setDataRepos] = useState<IRepos[]>([]);
 
 	return (
 		<div className="tw-grid tw-h-screen tw-place-content-center tw-bg-purple-900 tw-p-24">
