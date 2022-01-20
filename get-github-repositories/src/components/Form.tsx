@@ -22,6 +22,7 @@ const Form = ({ user, setUser, setProfileData, setDataRepos }: FormProps) => {
 			// Clean Form
 			setUser("");
 			setProfileData({});
+			setDataRepos([]);
 			return;
 		}
 
