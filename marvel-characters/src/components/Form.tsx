@@ -17,7 +17,6 @@ const Form = ({ inputSearch, setInputSearch, setDataApi }: FormProps) => {
 
 			const res = await data.json();
 
-
 			if (res.data.count === 0) {
 				toast(`Nothing found. Try again.`, {
 					icon: "😞",
@@ -26,6 +25,7 @@ const Form = ({ inputSearch, setInputSearch, setDataApi }: FormProps) => {
 			}
 
 			setDataApi(res.data.results);
+			setInputSearch("");
 		} catch (error) {
 			console.log(error);
 		}
@@ -42,12 +42,12 @@ const Form = ({ inputSearch, setInputSearch, setDataApi }: FormProps) => {
 				<input
 					className="tw-rounded-full tw-p-2 tw-w-72 md:tw-mr-4 tw-mb-4 md:tw-mb-0"
 					type="text"
-					placeholder="Ex: ironman"
+					placeholder="Ex: spider-man"
 					value={inputSearch}
 					onChange={handleChange}
 				/>
 				<button
-					className="tw-p-1 tw-rounded-full tw-text-white tw-bg-red-600 hover:tw-bg-red-500"
+					className="tw-p-2 tw-rounded-full tw-text-white tw-bg-red-600 hover:tw-bg-red-500"
 					type="submit">
 					Search!
 				</button>
