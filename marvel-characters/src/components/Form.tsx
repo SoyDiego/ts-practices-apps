@@ -12,7 +12,7 @@ const Form = ({ inputSearch, setInputSearch, setDataApi }: FormProps) => {
 		e.preventDefault();
 		try {
 			const data = await fetch(
-				`http://gateway.marvel.com/v1/public/characters?nameStartsWith=${inputSearch}&ts=1000&${process.env.REACT_APP_MARVEL_PUBLIC_KEY}`
+				`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${inputSearch}&ts=1000&${process.env.REACT_APP_MARVEL_PUBLIC_KEY}`
 			);
 
 			const res = await data.json();

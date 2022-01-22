@@ -6,4 +6,12 @@ export interface ICharacters {
 		path: string;
 		extension: string;
 	};
+	comics: {
+		available: number;
+		collectionURI: string;
+		items: Array<{
+			resourceURI: string;
+			name: string;
+		}>;
+	};
 }

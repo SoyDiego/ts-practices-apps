@@ -7,7 +7,7 @@
 ---
 ### Demo
 
-Soon
+https://ts-marvel-characters.netlify.app/
 
 <!-- ![Screenshot](https://i.imgur.com/oP6rpaD.png) -->
 
