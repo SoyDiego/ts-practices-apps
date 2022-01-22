@@ -26,3 +26,15 @@ https://ts-get-github-repositories.netlify.app
 ![Screenshot](https://i.imgur.com/oP6rpaD.png)
 
 ---
+
+### Marvel characters
+
+#### Demo
+
+https://ts-marvel-characters.netlify.app/
+
+![Screenshot](https://i.imgur.com/mw4vhjl.png)
+
+![Screenshot](https://i.imgur.com/pxM980f.png)
+
+---
