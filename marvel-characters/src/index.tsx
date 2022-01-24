@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import CharacterInfo from "./components/CharacterInfo";
 
 ReactDOM.render(
@@ -11,7 +11,7 @@ ReactDOM.render(
 			<Routes>
 				<Route path="/" element={<App />} />
 				<Route path="/character/:id" element={<CharacterInfo />} />
-				<Route path="*" element={<div>Not found</div>} />
+				<Route path="*" element={<Navigate to="/" />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>,

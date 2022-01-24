@@ -9,10 +9,8 @@ const GridCharacters = ({ dataApi }: GridCharactersProps) => {
 	return (
 		<div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-my-8">
 			{dataApi.map((character) => (
-				<Link to={`/character/${character.id}`}>
-					<div
-						key={character.id}
-						className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-p-4">
+				<Link key={character.id} to={`/character/${character.id}`}>
+					<div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-p-4">
 						<img
 							src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
 							alt={character.name}

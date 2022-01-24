@@ -33,8 +33,8 @@ https://ts-get-github-repositories.netlify.app
 
 https://ts-marvel-characters.netlify.app/
 
-![Screenshot](https://i.imgur.com/mw4vhjl.png)
+![Screenshot](https://i.imgur.com/ftpMxaF.png)
 
-![Screenshot](https://i.imgur.com/pxM980f.png)
+![Screenshot](https://i.imgur.com/AjX6yub.png)
 
 ---

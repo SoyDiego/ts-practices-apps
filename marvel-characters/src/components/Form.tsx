@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent } from "react";
+import { ChangeEvent, FormEvent, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 type FormProps = {
@@ -8,6 +8,14 @@ type FormProps = {
 };
 
 const Form = ({ inputSearch, setInputSearch, setDataApi }: FormProps) => {
+	useEffect(() => {
+		if (localStorage.getItem("lastSearch")) {
+			setDataApi(
+				JSON.parse(localStorage.getItem("lastSearch") as string)
+			);
+		}
+	}, [setDataApi]);
+
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		try {
@@ -25,6 +33,10 @@ const Form = ({ inputSearch, setInputSearch, setDataApi }: FormProps) => {
 			}
 
 			setDataApi(res.data.results);
+			localStorage.setItem(
+				"lastSearch",
+				JSON.stringify(res.data.results)
+			);
 			setInputSearch("");
 		} catch (error) {
 			console.log(error);
@@ -42,7 +54,7 @@ const Form = ({ inputSearch, setInputSearch, setDataApi }: FormProps) => {
 				<input
 					className="tw-rounded-full tw-p-2 tw-w-72 md:tw-mr-4 tw-mb-4 md:tw-mb-0"
 					type="text"
-					placeholder="Ex: spider-man"
+					placeholder="Ex: Wolverine"
 					value={inputSearch}
 					onChange={handleChange}
 				/>
