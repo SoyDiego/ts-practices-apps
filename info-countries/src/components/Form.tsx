@@ -1,7 +1,16 @@
-const Form = () => {
+import { ChangeEvent } from "react";
+
+type FormProps = {
+	search: string;
+	setSearch: (search: string) => void;
+};
+
+const Form = ({ search, setSearch }: FormProps) => {
 	const handleSubmit = () => {};
 
-	const handleChange = () => {};
+	const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
+		setSearch(target.value);
+	};
 
 	return (
 		<>
@@ -12,7 +21,7 @@ const Form = () => {
 					className="tw-rounded-full tw-p-2 tw-w-72 md:tw-mr-4 tw-mb-4 md:tw-mb-0"
 					type="text"
 					placeholder="Ex: Argentina"
-					value=""
+					value={search}
 					onChange={handleChange}
 				/>
 				<button
