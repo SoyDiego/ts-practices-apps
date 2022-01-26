@@ -4,6 +4,7 @@ export interface ICountries {
 	};
 	capital: Array<string>;
 	region: string;
+	subregion: string;
 	population: number;
 	flags: {
 		png: string;

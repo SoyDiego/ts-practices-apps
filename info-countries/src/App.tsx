@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CountryNameAndFlag from "./components/CountryNameAndFlag";
 import Form from "./components/Form";
 import { ICountries } from "./interfaces/ICountries";
 
@@ -32,32 +33,16 @@ const App = () => {
 			<div className="tw-w-screen tw-flex tw-flex-wrap tw-justify-center tw-p-4 tw-h-80 tw-overflow-y-scroll">
 				{filteredCountries
 					? filteredCountries.map((country) => (
-							<div
-								className="tw-flex tw-flex-col tw-m-3 md:tw-w-3/12 tw-items-center"
-								key={country.name.common}>
-								<img
-									className="tw-w-20 tw-h-12 tw-rounded-lg tw-cursor-pointer"
-									src={country.flags.png}
-									alt={country.name.common}
-								/>
-								<p className="tw-text-white/60 tw-text-xs tw-mt-2">
-									{country.name.common}
-								</p>
-							</div>
+							<CountryNameAndFlag
+								country={country}
+								key={Math.random()}
+							/>
 					  ))
 					: countries.map((country) => (
-							<div
-								className="tw-flex tw-flex-col tw-m-3 md:tw-w-3/12 tw-items-center"
-								key={country.name.common}>
-								<img
-									className="tw-w-20 tw-h-12 tw-rounded-lg tw-cursor-pointer"
-									src={country.flags.png}
-									alt={country.name.common}
-								/>
-								<p className="tw-text-white/60 tw-text-xs tw-mt-2">
-									{country.name.common}
-								</p>
-							</div>
+							<CountryNameAndFlag
+								country={country}
+								key={Math.random()}
+							/>
 					  ))}
 			</div>
 		</div>
