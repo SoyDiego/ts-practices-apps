@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { ICountries } from "../interfaces/ICountries";
 
 const InfoCountry = () => {
 	const { id } = useParams();
+	const navigate = useNavigate();
 	const [dataCountry, setDataCountry] = useState<ICountries[]>([]);
 
 	const callApi = async (id: string) => {
@@ -59,7 +60,9 @@ const InfoCountry = () => {
 						{dataCountry[0]?.population}
 					</span>
 				</p>
-				<button className="tw-m-4 tw-p-2 tw-rounded-lg tw-bg-slate-600 hover:tw-bg-slate-500">
+				<button
+					onClick={() => navigate(-1)}
+					className="tw-m-4 tw-p-2 tw-rounded-lg tw-bg-slate-600 hover:tw-bg-slate-500">
 					Go back!
 				</button>
 			</div>
