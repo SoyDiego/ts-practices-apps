@@ -38,3 +38,15 @@ https://ts-marvel-characters.netlify.app/
 ![Screenshot](https://i.imgur.com/AjX6yub.png)
 
 ---
+
+### Info Countries
+
+#### Demo
+
+https://ts-info-countries.netlify.app
+
+![Screenshot](https://i.imgur.com/jVVn3oO.png)
+
+![Screenshot](https://i.imgur.com/04B5mDR.png)
+
+---
