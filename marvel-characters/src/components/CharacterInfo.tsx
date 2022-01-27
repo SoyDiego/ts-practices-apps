@@ -7,10 +7,10 @@ const CharacterInfo = () => {
 	const [infoCharacter, setInfoCharacter] = useState<ICharacters[]>([]);
 	const { id } = useParams();
 	useEffect(() => {
-		callApi(id);
+		callApi(id as string);
 	}, [id]);
 
-	const callApi = async (id: any) => {
+	const callApi = async (id: string) => {
 		try {
 			const response = await fetch(
 				`https://gateway.marvel.com/v1/public/characters/${id}?ts=1000&${process.env.REACT_APP_MARVEL_PUBLIC_KEY}`
